@@ -4,6 +4,10 @@ import { notDispatchedActionError } from '../errors/notDispatchedActionError';
 function assertDispatchedActions(dispatched, expected) {
   const availableActions = dispatched.slice();
 
+  if (expected.length === 0 && dispatched.length > 0) {
+    throw notDispatchedActionError(dispatched, expected, {});
+  }
+
   for (let indexInExpected = 0; indexInExpected < expected.length; indexInExpected++) {
     const indexInAvailable = findIndex(availableActions, expected[indexInExpected]);
 
