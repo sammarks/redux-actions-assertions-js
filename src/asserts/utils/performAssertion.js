@@ -34,7 +34,7 @@ function performAssertion(assertFunction, initialState, action, expectedActions,
       done(err);
       return;
     }
-    throw new Error(JSON.stringify(err));
+    throw err;
   });
 }
 
