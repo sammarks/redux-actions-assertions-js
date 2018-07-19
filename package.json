@@ -11,7 +11,7 @@
     "test": "mocha --compilers js:babel-register --reporter spec --recursive",
     "build": "babel src --out-dir lib --copy-files",
     "prepublish": "rimraf lib && npm run build",
-    "prepare": "rimraf lib && npm run build"
+    "postinstall": "rimraf lib && npm run build"
   },
   "repository": {
     "type": "git",
